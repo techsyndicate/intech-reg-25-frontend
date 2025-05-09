@@ -57,7 +57,7 @@
 		}
 		if (
 			new Date(dob).getFullYear() < 2000 ||
-			new Date(dob).getFullYear() > 2015
+			new Date(dob).getFullYear() > 2016
 		) {
 			notyf.error("Please enter a valid date of birth");
 			return;
@@ -395,11 +395,11 @@
 
 	#reg-container {
 		margin-bottom: 50px;
-		display: none;
+		display: flex;
 	}
 	
 	#reg-container-2 {
-		display: flex;
+		display: none;
 	}
 	
 	#thank-you {
