@@ -159,8 +159,7 @@
 			parentemail: parentemail,
 		});
 		window.document.getElementById("regis").disabled = true;
-		// await fetch("https://intech-reg-24.onrender.com/register", {
-		await fetch("http://localhost:3000/register", {
+		await fetch("https://intech-25-backend.onrender.com/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
