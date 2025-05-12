@@ -314,7 +314,7 @@
 				<div class="reg-form-div-container">
 					{#each event as eventEl}
 						<button
-							style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 16vw;"
+							style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 16vw; padding:0; padding-top:0.7vw; padding-bottom:0.7vw; "
 							class="event-but"
 							on:click={() => select(eventEl)}
 							id={eventEl}>{eventEl}</button
