@@ -36,10 +36,7 @@
 		var adno = window.document.getElementById("adno").value;
 		var classs = window.document.getElementById("class").value;
 		var section = window.document.getElementById("section").value;
-		if (!vehicle1) {
-			notyf.error("Please ask your parents to consent for Discord!");
-			return;
-		}
+		
 		if (
 			!(
 				name &&
@@ -53,13 +50,6 @@
 			)
 		) {
 			notyf.error("Please fill all the fields");
-			return;
-		}
-		if (
-			new Date(dob).getFullYear() < 2000 ||
-			new Date(dob).getFullYear() > 2016
-		) {
-			notyf.error("Please enter a valid date of birth");
 			return;
 		}
 		if (phone.length != 10) {
