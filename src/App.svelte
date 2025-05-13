@@ -85,7 +85,7 @@
 			notyf.error("Please enter a valid admission number");
 			return;
 		}
-		if (classs < 7 || classs > 12) {
+		if (classs < 2 || classs > 12) {
 			notyf.error("Please enter a valid class");
 			return;
 		}
