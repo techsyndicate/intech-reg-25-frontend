@@ -267,8 +267,8 @@
 						type="number"
 						id="class"
 						name="class"
-						placeholder="7-12"
-						min="7"
+						placeholder="2-12"
+						min="2"
 						max="12"
 						style="font-size: 1.25rem;"
 					/>
