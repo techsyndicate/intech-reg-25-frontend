@@ -280,7 +280,6 @@
 				</div>
 			</div>
 			<div class="reg-form-div-container-parent">
-					{#if classss && Number(classss) >= 7}
 					<div id="parent">
 
 						<input
@@ -296,7 +295,6 @@
 							server of inTech (filled by a parent).
 						</label>
 					</div>
-					{/if}
 					<br />
 					<div class="inpt-sub-div-1" style="padding-left: 1vw; margin-bottom: 5vw;">
 						<button class="inpt-sub" on:click={submit}>Continue</button>
