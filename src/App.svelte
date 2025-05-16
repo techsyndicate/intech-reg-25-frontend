@@ -29,7 +29,6 @@
 
 	function submit() {
 		console.log("hey");
-		var vehicle1 = document.getElementById("vehicle1").checked;
 		var name = window.document.getElementById("name").value;
 		var dob = window.document.getElementById("dob").value;
 		var email = window.document.getElementById("email").value.trim();
