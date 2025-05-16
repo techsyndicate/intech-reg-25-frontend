@@ -257,7 +257,7 @@
 						type="number"
 						id="class"
 						name="class"
-						placeholder="2-12"
+						placeholder="5-12"
 						min="2"
 						max="12"
 						style="font-size: 1.25rem;"
@@ -303,12 +303,21 @@
 			{#each events as event}
 				<div class="reg-form-div-container">
 					{#each event as eventEl}
+						{#if window.innerWidth <= 1020}
+							<button
+								style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 70vw ; padding-y:3vw; "
+								class="event-but"
+								on:click={() => select(eventEl)}
+								id={eventEl}>{eventEl}</button
+							>
+						{:else}
 						<button
 							style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 16vw; padding:0; padding-top:0.7vw; padding-bottom:0.7vw; "
 							class="event-but"
 							on:click={() => select(eventEl)}
 							id={eventEl}>{eventEl}</button
 						>
+						{/if}
 					{/each}
 				</div>
 			{/each}
