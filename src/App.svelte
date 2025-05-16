@@ -29,6 +29,7 @@
 
 	function submit() {
 		console.log("hey");
+		
 		var name = window.document.getElementById("name").value;
 		var dob = window.document.getElementById("dob").value;
 		var email = window.document.getElementById("email").value.trim();
