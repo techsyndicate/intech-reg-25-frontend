@@ -9,13 +9,17 @@
 		],
 		["3D Design", "2D Design", "UI Design", "A/V editing"],
 		["Group Discussion", "Crossword", "Gaming", "Photography"],
-		["Competitive Programming", "Film Making", "Hardware", "Cubing"],
-		["Quiz", "Canva (Jr)", "Scratch (Jr)", "Paint 3D (Jr)"],
-		["Adobe Express (Jr)", "PPT Making (Jr)"]
+		["Competitive Programming", "Film Making", "Hardware", "Cubing", "Quiz"],
 	];
+	const juniorEvents = [
+				["Canva (Jr)", "Scratch (Jr)", "Paint 3D (Jr)"],
+		["Adobe Express (Jr)", "PPT Making (Jr)"]
+	]
 
 	let selected = [];
 	let notyf = new Notyf();
+
+	var classss;
 
 	function removeSpace() {
 		var email = window.document.getElementById("email").value;
@@ -261,6 +265,7 @@
 						min="2"
 						max="12"
 						style="font-size: 1.25rem;"
+						bind:value={classss}
 					/>
 				</div>
 				<div class="reg-form-div">
@@ -275,34 +280,37 @@
 				</div>
 			</div>
 			<div class="reg-form-div-container-parent">
-				<div id="parent">
+					{#if classss && Number(classss) >= 7}
+					<div id="parent">
 
-					<input
-					type="checkbox"
-					id="vehicle1"
-					name="vehicle1"
-					value="Bike"
-					class="age-consent"
-					/>
-					<span class="color-changer"></span>
-					<label style="color: #FFF; font-size: 1rem;" for="vehicle1">
-						I consent for my child if above 13 to join the discord
-						server of inTech (filled by a parent).
-					</label>
+						<input
+						type="checkbox"
+						id="vehicle1"
+						name="vehicle1"
+						value="Bike"
+						class="age-consent"
+						/>
+						<span class="color-changer"></span>
+						<label style="color: #FFF; font-size: 1rem;" for="vehicle1">
+							I consent for my child if above 13 to join the discord
+							server of inTech (filled by a parent).
+						</label>
+					</div>
+					{/if}
+					<br />
+					<div class="inpt-sub-div-1" style="padding-left: 1vw; margin-bottom: 5vw;">
+						<button class="inpt-sub" on:click={submit}>Continue</button>
+					</div>
 				</div>
-				<br />
-				<div class="inpt-sub-div-1" style="padding-left: 1vw;">
-					<button class="inpt-sub" on:click={submit}>Continue</button>
-				</div>
-			</div>
 		</div>
 	</div>
 	<div id="reg-container-2" class="reg-container">
 		<h1 class="title">Choose Interested Fields</h1>
 		<div class="reg-form-2">
-			{#each events as event}
+			{#if classss && Number(classss) < 7}
+				{#each juniorEvents as junior}
 				<div class="reg-form-div-container">
-					{#each event as eventEl}
+					{#each junior as eventEl}
 						{#if window.innerWidth <= 1020}
 							<button
 								style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 70vw ; padding-y:3vw; "
@@ -320,11 +328,34 @@
 						{/if}
 					{/each}
 				</div>
-			{/each}
+				{/each}
+			{:else}
+				{#each events as event}
+					<div class="reg-form-div-container">
+						{#each event as eventEl}
+							{#if window.innerWidth <= 1020}
+								<button
+									style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 70vw ; padding-y:3vw; "
+									class="event-but"
+									on:click={() => select(eventEl)}
+									id={eventEl}>{eventEl}</button
+								>
+							{:else}
+							<button
+								style="color: rgb(255, 255, 255); border: #2C2A2A solid 3px; width: 16vw; padding:0; padding-top:0.7vw; padding-bottom:0.7vw; "
+								class="event-but"
+								on:click={() => select(eventEl)}
+								id={eventEl}>{eventEl}</button
+							>
+							{/if}
+						{/each}
+					</div>
+				{/each}
+			{/if}
 		</div>
 		<div class="inpt-sub-div">
 			<button id="regis" class="inpt-sub" on:click={register}
-				>Submit</button
+			>Submit</button
 			>
 		</div>
 	</div>
@@ -340,7 +371,6 @@
 		</div>
 	</div>
 </main>
-
 <style>
 	@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 	:global(body) {
